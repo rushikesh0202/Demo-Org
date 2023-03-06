@@ -1,66 +1,96 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Project run steps:
+a. Create Db
+b. Update Db details in .env file
+c. Run below commands,
+   1. composer update
+   2. php artisan migrate
+   3.. php artisan serve
+d. Following are the list of apis,
+1. Register Company: http://127.0.0.1:8000/api/register
+Method: GET
+Headers: Accept => application/json
+Body(form-data): name, email, password
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+2. Update Company: http://127.0.0.1:8000/api/companies/{id}
+Method: PUT
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(x-www-form-urlencoded-data): name, email, address, industry, phone, mobile, fax
 
-## About Laravel
+3. Company Details: http://127.0.0.1:8000/api/companies/{id}
+Method: GET
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(form-data): no params
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+4. Companies List: http://127.0.0.1:8000/api/companies
+Method: GET
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(form-data): no params
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+5. Company Delete: http://127.0.0.1:8000/api/companies/{id}
+Method: DELETE
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(form-data): no params
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+6. Create Department: http://127.0.0.1:8000/api/departments
+Method: POST
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(form-data): name, company
 
-## Learning Laravel
+7. Update Department: http://127.0.0.1:8000/api/departments/{id}
+Method: PUT
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(x-www-form-urlencoded-data): name, company
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+8. Department Details: http://127.0.0.1:8000/api/departments/{id}
+Method: GET
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(form-data): no params
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+9. Department List: http://127.0.0.1:8000/api/departments
+Method: GET
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(form-data): no params
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+10. Department Delete: http://127.0.0.1:8000/api/departments/{id}
+Method: DELETE
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(form-data): no params
 
-## Laravel Sponsors
+11. Create Employee: http://127.0.0.1:8000/api/employees
+Method: POST
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(form-data): first_name, last_name, department, email, phone, mobile, address
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+12. Update Employee: http://127.0.0.1:8000/api/employees/{id}
+Method: PUT
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(x-www-form-urlencoded-data): first_name, last_name, department, email, phone, mobile, address
 
-### Premium Partners
+13. Employee Details: http://127.0.0.1:8000/api/employees/{id}
+Method: GET
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(form-data): no params
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+14. Employee List: http://127.0.0.1:8000/api/employees
+Method: GET
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(form-data): no params
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+15. Employee Delete: http://127.0.0.1:8000/api/employees/{id}
+Method: DELETE
+Headers: Accept => application/json
+         Authorization => {Generated token while register company} 
+Body(form-data): no params
